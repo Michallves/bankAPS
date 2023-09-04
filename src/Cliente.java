@@ -1,12 +1,10 @@
 
 class Cliente {
-    private static int contadorId = 1;
     private int id;
     private String nome;
     private String cpf;
 
-    public Cliente(String nome, String cpf) {
-        this.id = contadorId++;
+    public Cliente(int contadorId, String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
     }
@@ -34,5 +32,9 @@ class Cliente {
     @Override
     public String toString() {
         return "Cliente [ID: " + id + ", Nome: " + nome + ", CPF: " + cpf + "]";
+    }
+
+    public int getIdCliente() {
+        return 0;
     }
 }

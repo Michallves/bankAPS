@@ -6,13 +6,14 @@ class Conta {
     private String numeroConta;
     private String agencia;
 
-    public Conta(Cliente cliente, double saldo, String numeroConta, String agencia) {
+    public Conta(int contadorIdConta, Cliente cliente, double saldo, String numeroConta, String agencia) {
         this.id = contadorId++;
         this.cliente = cliente;
         this.saldo = saldo;
         this.numeroConta = numeroConta;
         this.agencia = agencia;
     }
+    
 
     public void setNumeroConta(String numeroConta) {
         this.numeroConta = numeroConta;
@@ -48,14 +49,20 @@ class Conta {
         return false;
     }
 
-    public void transferir(Conta destino, double valor) {
+    public boolean transferir(Conta destino, double valor) {
         if (sacar(valor)) {
             destino.depositar(valor);
         }
+        return false;
     }
 
     @Override
     public String toString() {
         return "Conta [ID: " + id + ", Cliente: " + cliente.getNome() + ", Saldo: " + saldo + ", Número da Conta: " + numeroConta + ", Agência: " + agencia + "]";
+    }
+
+
+    public int getContaId() {
+        return 0;
     }
 }
