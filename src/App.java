@@ -1,10 +1,25 @@
 import java.util.Scanner;
+import javax.swing.*;
 
 public class App {
     public static void main(String[] args) {
         Banco banco = new Banco();
         Scanner scanner = new Scanner(System.in);
 
+        Titular t1 = new PessoaFisica(0,  "Michael Alves",  "087.354.273-88");
+          Titular t2 = new PessoaJuridica(1,  "Maicon Alves",  "0899.0088.9988-99");
+
+          System.out.println(t1.getId() + ": " + t1.getNome());
+          System.out.println(t2.getId() + ": " + t2.getNome());
+
+          PessoaFisica pf = (PessoaFisica) t1;
+          PessoaJuridica pj = (PessoaJuridica) t2;
+          
+
+          System.out.println(pf.getId() + ": " + pf.getNome() + ": " + pf.getCpf());
+          System.out.println(pj.getId() + ": " + pj.getNome()  + ": " + pj.getCnpj());
+          System.exit(0);
+        
         while (true) {
             System.out.println("\nEscolha uma opção:");
             System.out.println("1. Criar Cliente");
@@ -13,7 +28,13 @@ public class App {
             System.out.println("4. Sacar");
             System.out.println("5. Transferir");
             System.out.println("6. Mostrar Saldo");
-            System.out.println("7. Sair");
+            System.out.println("7. Mostrar cliente");
+            System.out.println("8. Mostrar conta");
+            System.out.println("9. Atualizar cliente");
+            System.out.println("10. Atualizar conta");
+            System.out.println("11. Deletar cliente");
+            System.out.println("12. Deletar conta");
+            System.out.println("13. Sair");
 
             int choice = scanner.nextInt();
 
@@ -65,6 +86,34 @@ public class App {
                     banco.mostrarSaldo(balanceAccountId);
                     break;
                 case 7:
+                    System.out.println("Digite o ID da cliente:");
+
+                    break;
+                case 8:
+                    System.out.println("Digite o ID da conta:");
+
+                    break;
+                case 9:
+                    System.out.println("Digite o ID da cliente:");
+
+                    break;
+                case 10:
+                    System.out.println("Digite o ID da conta:");
+
+                    break;
+
+                case 11:
+                    System.out.println("Digite o ID da cliente:");
+                    int deleteClientId = scanner.nextInt();
+                    banco.deletarCliente(deleteClientId);
+                    break;
+                case 12:
+                    System.out.println("Digite o ID da conta:");
+                    int deleteAccountId = scanner.nextInt();
+                    banco.deletarConta(deleteAccountId);
+                    break;
+
+                case 13:
                     scanner.close();
                     System.out.println("Saindo...");
                     System.exit(0);

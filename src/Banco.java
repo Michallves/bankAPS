@@ -31,6 +31,31 @@ public class Banco {
         }
     }
 
+    public void deletarCliente(int idCliente){
+            for (Cliente cliente : clientes) {
+                
+                if(cliente.getId() == idCliente){
+                    clientes.remove(cliente);
+                      System.out.println("Cliente deletado com sucesso!.");
+         
+                } else {
+          
+            System.out.println("Cliente não encontrado.");
+         
+        }}
+    }
+
+    public void deletarConta(int idAccount){
+            for (Conta conta : contas) {
+                if(conta.getId() == idAccount){
+                    contas.remove(conta);
+                      System.out.println("Conta deletado com sucesso!.");
+                } else {
+          
+            System.out.println("Conta não encontrado.");
+        }}
+    }
+
     public void depositar(int idConta, double valor) {
         Conta conta = encontrarConta(idConta);
         if (conta != null) {
